@@ -18,7 +18,7 @@ CREATE TABLE chatroach.messages(
 
 CREATE TABLE chatroach.users(
        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-       typeform_token VARCHAR NOT NULL, 
+       typeform_token VARCHAR NOT NULL,
        email VARCHAR NOT NULL UNIQUE
 );
 
@@ -28,7 +28,8 @@ CREATE TABLE chatroach.users_teams(
 );
 
 CREATE TABLE chatroach.teams(
-       id UUID PRIMARY KEY DEFAULT gen_random_uuid()
+       id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+       name VARCHAR NOT NULL
 );
 
 CREATE TABLE chatroach.facebook_pages(
