@@ -7,7 +7,7 @@ cat chatroach.sql | kubectl run -i --rm cockroach-client --image=cockroachdb/coc
 
 CREATE DATABASE chatroach;
 
--- TODO: add userid that's not the end user, but the survey owner...
+-- TODO: add pageid (already in the JSON) or just make JSON field?
 CREATE TABLE chatroach.messages(
        id BIGINT PRIMARY KEY,
        content VARCHAR NOT NULL,
