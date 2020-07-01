@@ -30,7 +30,6 @@ CREATE TABLE chatroach.users_projects(
 CREATE TABLE chatroach.projects(
        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
        name VARCHAR NOT NULL
-);
 
 CREATE TABLE chatroach.facebook_pages(
        pageid VARCHAR PRIMARY KEY,
