@@ -22,12 +22,12 @@ CREATE TABLE chatroach.users(
        email VARCHAR NOT NULL UNIQUE
 );
 
-CREATE TABLE chatroach.users_teams(
+CREATE TABLE chatroach.users_projects(
        userid UUID NOT NULL REFERENCES chatroach.users(id) ON DELETE CASCADE,
-       teamid UUID NOT NULL REFERENCES chatroach.teams(id) ON DELETE CASCADE
+       projectid UUID NOT NULL REFERENCES chatroach.projects(id) ON DELETE CASCADE
 );
 
-CREATE TABLE chatroach.teams(
+CREATE TABLE chatroach.projects(
        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
        name VARCHAR NOT NULL
 );
@@ -35,7 +35,7 @@ CREATE TABLE chatroach.teams(
 CREATE TABLE chatroach.facebook_pages(
        pageid VARCHAR PRIMARY KEY,
        token VARCHAR NOT NULL,
-       teamid UUID REFERENCES chatroach.teams(id) ON DELETE CASCADE
+       projectid UUID REFERENCES chatroach.projects(id) ON DELETE CASCADE
 );
 
 CREATE TABLE chatroach.surveys(
@@ -46,7 +46,7 @@ CREATE TABLE chatroach.surveys(
        messages VARCHAR,
        shortcode VARCHAR NOT NULL,
        title VARCHAR NOT NULL,
-       teamid UUID NOT NULL REFERENCES chatroach.teams(id) ON DELETE CASCADE
+       projectid UUID NOT NULL REFERENCES chatroach.projects(id) ON DELETE CASCADE
 );
 
 CREATE TABLE chatroach.responses(
